@@ -5,8 +5,8 @@ export default function ButtonPage() {
   return (
     <section>
       <h1>공통 버튼 컴포넌트</h1>
-      <div className="mt-4 flex gap-4">
-        <Button onClick={() => alert("버튼 클릭됨!")}>버튼</Button>
+      <div className="mt-4 flex flex-col gap-4 lg:flex-row">
+        <Button onClick={() => console.log("버튼 클릭됨!")}>버튼</Button>
         <Button
           variant="secondary"
           className="w-64"
