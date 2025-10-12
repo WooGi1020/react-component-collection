@@ -103,7 +103,8 @@ export default function Slider({
 
       <div
         ref={containerRef}
-        className={`min-w-[300px] max-w-[${w}px] flex overflow-x-auto rounded-3xl cursor-grab scroll-smooth scrollbar-hide`}
+        style={{ maxWidth: w }}
+        className={`min-w-[300px] w-full flex overflow-x-auto rounded-3xl cursor-grab scroll-smooth scrollbar-hide`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -114,7 +115,7 @@ export default function Slider({
             key={picture.id}
             src={picture.src}
             alt={`슬라이드 ${picture.alt}`}
-            className="w-full flex-shrink-0 select-none object-cover"
+            className="w-full select-none object-cover"
             draggable={false}
           />
         ))}

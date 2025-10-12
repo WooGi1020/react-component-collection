@@ -7,7 +7,7 @@ export default function Header() {
   const toggleSidebar = useUiStore((state) => state.toggleSidebar);
 
   return (
-    <header className="fixed inset-0 h-16 bg-white shadow z-50">
+    <header className="fixed inset-0 h-16 bg-white shadow z-40">
       <nav className="flex gap-4 items-center h-full px-4">
         <NavLink to="/" className="text-lg text-blue-400">
           React-Component-Collection

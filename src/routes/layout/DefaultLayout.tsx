@@ -6,7 +6,7 @@ export default function DefaultLayout() {
   return (
     <main className="relative flex min-h-screen">
       <Sidebar />
-      <div className="flex-1 lg:pl-72 py-20 px-8 lg:w-full mx-auto">
+      <div className="flex-1 lg:pl-72 py-20 px-8 lg:w-full">
         <Header />
         <Outlet />
       </div>
