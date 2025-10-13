@@ -1,10 +1,10 @@
-// ...existing code...
 import clsx from "clsx";
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
-  variant?: "primary" | "secondary" | "icon";
+  variant?: "primary" | "secondary" | "ghost" | "danger";
+  size?: "default" | "icon";
   isLoading?: boolean;
   className?: string;
 }
@@ -14,6 +14,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     children,
     className,
     variant = "primary",
+    size = "default",
     isLoading = false,
     disabled,
     type,
@@ -25,19 +26,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   const isDisabled = disabled || isLoading;
 
   const base =
-    "rounded cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 outline-none min-w-fit flex items-center justify-center active:scale-99 transition-scale duration-30 ";
-  const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
+    "inline-flex items-center justify-center font-medium select-none cursor-pointer transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600";
+
+  const variants = {
     primary:
-      "px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700",
+      "bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 disabled:opacity-60",
     secondary:
-      "px-4 py-2  bg-gray-500 text-white hover:bg-gray-600 active:bg-gray-700",
-    icon: "p-2 rounded-full p-2 w-fit bg-transparent hover:bg-gray-100 active:bg-gray-200",
+      "bg-gray-500 text-white hover:bg-gray-600 active:bg-gray-700 disabled:opacity-60",
+    ghost:
+      "bg-transparent text-gray-700 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50",
+    danger:
+      "bg-red-500 text-white hover:bg-red-600 active:bg-red-700 disabled:opacity-60",
+  };
+
+  const sizes = {
+    default: "w-auto min-w-fit px-4 py-2 text-sm rounded-md",
+    icon: "inline-flex w-auto aspect-square p-2 rounded-full items-center justify-center",
   };
 
   const classes = clsx(
     base,
     variants[variant],
-    isDisabled && "opacity-60 cursor-not-allowed pointer-events-none",
+    sizes[size],
+    isDisabled && "cursor-not-allowed pointer-events-none opacity-60",
     className
   );
 
@@ -46,10 +57,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       ref={ref}
       type={type ?? "button"}
       className={classes}
-      aria-label="Button"
+      aria-label={props["aria-label"] ?? "button"}
       disabled={isDisabled}
       aria-busy={isLoading || undefined}
-      {...props}
       onClick={(e) => {
         if (isDisabled) {
           e.preventDefault();
@@ -58,6 +68,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
         }
         onClick?.(e);
       }}
+      {...props}
     >
       {children}
     </button>
@@ -65,4 +76,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
 });
 
 export default Button;
-// ...existing code...
