@@ -6,6 +6,7 @@ import SliderPage from "./pages/SliderPage";
 import ModalPage from "./pages/ModalPage";
 import ImageUploaderPage from "./pages/ImageUploaderPage";
 import PaginationPage from "./pages/PaginationPage";
+import InputPage from "./pages/InputPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "components/pagination",
         element: <PaginationPage />,
+      },
+      {
+        path: "forms/input",
+        element: <InputPage />,
       },
     ],
   },
