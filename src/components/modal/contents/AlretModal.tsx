@@ -5,6 +5,7 @@ import NestedModal from "./NestedModal";
 
 export default function AlertModal() {
   const openModal = useUiStore((s) => s.openModal);
+  const closeModal = useUiStore((s) => s.closeModal);
 
   const handleOpenNested = () => {
     openModal(NestedModal);
@@ -20,7 +21,9 @@ export default function AlertModal() {
       </ModalBody>
       <ModalFooter>
         <Button onClick={handleOpenNested}>중첩 모달 열기</Button>
-        <Button onClick={() => alert("취소됨")}>취소</Button>
+        <Button variant="danger" onClick={() => closeModal()}>
+          취소
+        </Button>
         <Button>확인</Button>
       </ModalFooter>
     </>

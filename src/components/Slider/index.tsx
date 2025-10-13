@@ -94,7 +94,8 @@ export default function Slider({
   return (
     <div className="relative w-fit">
       <Button
-        variant="icon"
+        size="icon"
+        variant="ghost"
         className="shadow-md hover:shadow-lg cursor-pointer p-2 rounded-3xl absolute top-1/2 translate-y-[-50%] z-20 left-3 bg-white/80"
         onClick={() => handleSlide("left")}
       >
@@ -122,7 +123,8 @@ export default function Slider({
       </div>
 
       <Button
-        variant="icon"
+        size="icon"
+        variant="ghost"
         className="shadow-md hover:shadow-lg cursor-pointer p-2 rounded-3xl absolute top-1/2 translate-y-[-50%] z-20 right-3 bg-white/80"
         onClick={() => handleSlide("right")}
       >

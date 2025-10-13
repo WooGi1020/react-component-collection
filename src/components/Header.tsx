@@ -14,7 +14,8 @@ export default function Header() {
         </NavLink>
 
         <Button
-          variant="icon"
+          variant="ghost"
+          size="icon"
           className="lg:hidden ml-auto cursor-pointer hover:bg-gray-100 p-2 rounded-full"
           onClick={toggleSidebar}
         >
