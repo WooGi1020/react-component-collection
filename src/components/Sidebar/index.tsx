@@ -23,23 +23,24 @@ export default function Sidebar() {
         {isOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black/30 lg:hidden z-50"
+              className="fixed inset-0 bg-black/30 lg:hidden z-50 backdrop-blur-xs"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeSidebar}
             />
             <motion.aside
-              className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg lg:hidden pt-24 px-3 z-50"
+              className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg lg:hidden pt-10 px-3 z-50"
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween" }}
             >
               <Button
-                variant="icon"
+                variant="ghost"
+                size="icon"
                 onClick={closeSidebar}
-                className="absolute top-17 right-2"
+                className="absolute top-2 right-2"
               >
                 <SidebarClose />
               </Button>

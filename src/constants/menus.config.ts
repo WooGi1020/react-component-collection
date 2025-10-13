@@ -4,8 +4,9 @@ const MENU = [
     items: [
       { label: "Button", to: "/components/button" },
       { label: "Modal", to: "/components/modal" },
-      { label: "Card", to: "/components/card" },
       { label: "Slider", to: "/components/slider" },
+      { label: "Pagination", to: "/components/pagination" },
+      { label: "ImageUploader", to: "/components/image-uploader" },
     ],
   },
   {

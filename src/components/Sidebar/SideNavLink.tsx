@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import clsx from "clsx";
+import useUiStore from "@/store/useUiStore";
 
 interface SideNavLinkProps {
   category: string;
@@ -15,6 +16,8 @@ export default function SideNavLink({ category, items }: SideNavLinkProps) {
     );
   };
 
+  const closeSidebar = useUiStore((s) => s.closeSidebar);
+
   return (
     <div key={category} className="mb-6">
       <h2 className="px-2 mb-2 text-sm font-semibold text-blue-600 uppercase">
@@ -23,7 +26,7 @@ export default function SideNavLink({ category, items }: SideNavLinkProps) {
       <ul className="flex flex-col gap-1">
         {items.map(({ label, to }) => (
           <li key={to}>
-            <NavLink to={to} className={navActiveStyle}>
+            <NavLink to={to} className={navActiveStyle} onClick={closeSidebar}>
               {label}
             </NavLink>
           </li>

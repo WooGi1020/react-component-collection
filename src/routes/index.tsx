@@ -4,6 +4,8 @@ import ButtonPage from "./pages/ButtonPage";
 import HomePage from "./pages/HomePage";
 import SliderPage from "./pages/SliderPage";
 import ModalPage from "./pages/ModalPage";
+import ImageUploaderPage from "./pages/ImageUploaderPage";
+import PaginationPage from "./pages/PaginationPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "components/modal",
         element: <ModalPage />,
+      },
+      {
+        path: "components/image-uploader",
+        element: <ImageUploaderPage />,
+      },
+      {
+        path: "components/pagination",
+        element: <PaginationPage />,
       },
     ],
   },

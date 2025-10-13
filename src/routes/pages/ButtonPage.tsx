@@ -6,19 +6,32 @@ export default function ButtonPage() {
     <section>
       <h1>공통 버튼 컴포넌트</h1>
       <div className="mt-4 flex flex-col gap-4 lg:flex-row">
-        <Button onClick={() => console.log("버튼 클릭됨!")}>버튼</Button>
+        <Button
+          className="max-w-20"
+          onClick={() => console.log("버튼 클릭됨!")}
+        >
+          버튼
+        </Button>
+        <Button variant="danger" onClick={() => console.log("버튼 클릭됨!")}>
+          버튼
+        </Button>
         <Button
           variant="secondary"
-          className="w-64"
+          className="whitespace-nowrap"
           onClick={() => alert("버튼 클릭됨!")}
         >
           넓고 회색인 버튼
         </Button>
-        <Button isLoading className="w-64">
+        <Button isLoading>
           <Loader2 className="animate-spin" />
         </Button>
-        <Button variant="icon" onClick={() => alert("아이콘 버튼 클릭됨!")}>
-          <Menu />
+        <Button
+          variant="ghost"
+          size="icon"
+          className="w-fit"
+          onClick={() => alert("아이콘 버튼 클릭됨!")}
+        >
+          <Menu className="size-6" />
         </Button>
       </div>
     </section>
