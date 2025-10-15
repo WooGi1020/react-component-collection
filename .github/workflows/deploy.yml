@@ -1,0 +1,32 @@
+name: Deploy Vite to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1️⃣ 코드 체크아웃
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Node.js 설정
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - run: pnpm install
+
+      - run: pnpm run build
+
+      - run: cp dist/index.html dist/404.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
