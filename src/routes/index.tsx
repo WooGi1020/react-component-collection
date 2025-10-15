@@ -7,6 +7,9 @@ import ModalPage from "./pages/ModalPage";
 import ImageUploaderPage from "./pages/ImageUploaderPage";
 import PaginationPage from "./pages/PaginationPage";
 import InputPage from "./pages/InputPage";
+import PopoverPage from "./pages/PopoverPage";
+import SelectPage from "./pages/SelectPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "forms/input",
         element: <InputPage />,
+      },
+      {
+        path: "components/popover",
+        element: <PopoverPage />,
+      },
+      {
+        path: "forms/select",
+        element: <SelectPage />,
       },
     ],
   },

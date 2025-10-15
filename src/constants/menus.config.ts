@@ -1,4 +1,4 @@
-const MENU = [
+const MENUS = [
   {
     category: "Components",
     items: [
@@ -7,6 +7,7 @@ const MENU = [
       { label: "Slider", to: "/components/slider" },
       { label: "Pagination", to: "/components/pagination" },
       { label: "ImageUploader", to: "/components/image-uploader" },
+      { label: "Popover", to: "/components/popover" },
     ],
   },
   {
@@ -18,4 +19,4 @@ const MENU = [
   },
 ];
 
-export default MENU;
+export default MENUS;

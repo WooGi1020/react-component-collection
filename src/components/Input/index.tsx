@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  useId,
   useState,
   type InputHTMLAttributes,
   type TextareaHTMLAttributes,
@@ -42,12 +41,10 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
     },
     ref
   ) => {
-    const reactId = useId();
-    const inputId = id ?? `input-${reactId}`;
     const [showPassword, setShowPassword] = useState(false);
 
     const describedBy =
-      [error ? `${inputId}-error` : null, helpText ? `${inputId}-help` : null]
+      [error ? `${id}-error` : null, helpText ? `${id}-help` : null]
         .filter(Boolean)
         .join(" ") || undefined;
 
@@ -71,7 +68,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
       <div className="w-full">
         {label && (
           <label
-            htmlFor={inputId}
+            htmlFor={id}
             className={clsx(
               "mb-1 inline-flex items-center gap-1 font-medium text-gray-700",
               hideLabel && "sr-only"
@@ -94,7 +91,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
           )}
 
           <FieldTag
-            id={inputId}
+            id={id}
             ref={ref as any}
             type={FieldTag === "input" ? actualType : undefined}
             required={required}
@@ -131,11 +128,11 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
         </div>
 
         {error ? (
-          <p id={`${inputId}-error`} className="mt-1 text-xs text-red-600">
+          <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
             {error}
           </p>
         ) : helpText ? (
-          <p id={`${inputId}-help`} className="mt-1 text-xs text-gray-500">
+          <p id={`${id}-help`} className="mt-1 text-xs text-gray-500">
             {helpText}
           </p>
         ) : null}

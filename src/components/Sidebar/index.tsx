@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import useUiStore from "@/store/useUiStore";
 import { SidebarClose } from "lucide-react";
-import MENU from "@/constants/menus.config";
+import MENUS from "@/constants/menus.config";
 import SideNavLink from "./SideNavLink";
 import Button from "../Button";
 
@@ -13,7 +13,7 @@ export default function Sidebar() {
     <>
       <aside className="hidden lg:flex fixed left-0 top-0 h-full w-64  pt-20 shadow-md px-3">
         <nav className="w-full overflow-y-auto px-3">
-          {MENU.map(({ category, items }) => (
+          {MENUS.map(({ category, items }) => (
             <SideNavLink key={category} category={category} items={items} />
           ))}
         </nav>
@@ -45,7 +45,7 @@ export default function Sidebar() {
                 <SidebarClose />
               </Button>
               <nav className="w-full overflow-y-auto">
-                {MENU.map(({ category, items }) => (
+                {MENUS.map(({ category, items }) => (
                   <SideNavLink
                     key={category}
                     category={category}
