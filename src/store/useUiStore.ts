@@ -6,6 +6,21 @@ interface ModalData {
   props?: Record<string, any>;
 }
 
+interface ToastData {
+  id: string;
+  message: string;
+  type: "info" | "success" | "error";
+  duration?: number;
+}
+
+type ToastPlacement =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center";
+
 type UiStore = {
   isSidebarOpen: boolean;
   toggleSidebar: () => void;
@@ -17,6 +32,16 @@ type UiStore = {
     props?: Record<string, any>
   ) => void;
   closeModal: (id?: string) => void;
+
+  toasts: ToastData[];
+  placement?: ToastPlacement;
+  addToast: (
+    message: string,
+    type?: "info" | "success" | "error",
+    placement?: ToastPlacement,
+    duration?: number
+  ) => void;
+  removeToast: (id: string) => void;
 };
 
 const useUiStore = create<UiStore>((set) => ({
@@ -33,6 +58,25 @@ const useUiStore = create<UiStore>((set) => ({
   closeModal: (id) =>
     set((s) => ({
       modals: id ? s.modals.filter((m) => m.id !== id) : s.modals.slice(0, -1),
+    })),
+
+  toasts: [],
+  addToast: (
+    message,
+    type = "info",
+    placement = "top-right",
+    duration = 1000
+  ) =>
+    set((s) => ({
+      toasts: [
+        ...s.toasts,
+        { id: crypto.randomUUID(), message, type, duration },
+      ],
+      placement,
+    })),
+  removeToast: (id) =>
+    set((s) => ({
+      toasts: s.toasts.filter((t) => t.id !== id),
     })),
 }));
 
