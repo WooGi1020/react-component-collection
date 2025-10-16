@@ -2,6 +2,7 @@ import { useState } from "react";
 import Popover from "@/components/Popover";
 import Button from "@/components/Button";
 import clsx from "clsx";
+import { Check } from "lucide-react";
 
 type SelectOption = {
   label: string;
@@ -35,7 +36,7 @@ export default function Select({
           variant="ghost"
           className={clsx(
             "w-full max-w-[180px] flex border border-gray-200 ",
-            open && "!bg-gray-200"
+            open && "bg-gray-200"
           )}
           {...props}
         >
@@ -49,7 +50,7 @@ export default function Select({
             variant="ghost"
             key={option.value}
             className={`w-full text-left px-4 py-2 hover:bg-gray-100 justify-start ${
-              option.value === value ? "font-medium bg-gray-100" : ""
+              option.value === value ? "font-bold bg-gray-100" : ""
             }`}
             onClick={() => {
               onChange?.(option.value);
@@ -57,6 +58,7 @@ export default function Select({
             }}
           >
             {option.label}
+            {option.value === value && <Check className="ml-auto size-4" />}
           </Button>
         ))}
       </div>

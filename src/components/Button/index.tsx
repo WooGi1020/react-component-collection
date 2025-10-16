@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -44,12 +45,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     icon: "inline-flex w-auto aspect-square p-2 rounded-full items-center justify-center",
   };
 
-  const classes = clsx(
-    base,
-    variants[variant],
-    sizes[size],
-    isDisabled && "cursor-not-allowed pointer-events-none opacity-60",
-    className
+  const classes = twMerge(
+    clsx(
+      base,
+      variants[variant],
+      sizes[size],
+      isDisabled && "cursor-not-allowed pointer-events-none opacity-60",
+      className
+    )
   );
 
   return (

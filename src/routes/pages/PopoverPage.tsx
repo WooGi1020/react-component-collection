@@ -14,7 +14,7 @@ export default function PopoverPage() {
             variant="ghost"
             size="icon"
             className={clsx(
-              "relative size-10 rounded-full transition",
+              "size-10 rounded-full transition p-0",
               open && "ring-2 ring-blue-500"
             )}
             {...props}
@@ -22,7 +22,7 @@ export default function PopoverPage() {
             <img
               src="https://i.pravatar.cc/100"
               alt="User Avatar"
-              className="absolute inset-0 size-full rounded-full object-cover"
+              className="size-full rounded-full object-cover"
             />
           </Button>
         )}
