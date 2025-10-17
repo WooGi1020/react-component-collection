@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, type JSX } from "react";
 import Button from "../Button";
 import { X, CheckCircle, Info, AlertTriangle } from "lucide-react";
 
@@ -9,19 +9,19 @@ const TOAST_TYPE_CONFIG: Record<
   { base: string; icon: JSX.Element; progressBg: string }
 > = {
   info: {
-    base: "text-gray-500 border-2 border-blue-300",
+    base: "text-gray-500 border-2 border-blue-500",
     icon: <Info className="w-5 h-5 mr-2 stroke-blue-500" />,
-    progressBg: "bg-blue-300",
+    progressBg: "bg-blue-500",
   },
   success: {
-    base: "text-gray-500 border-2 border-green-300",
+    base: "text-gray-500 border-2 border-green-500",
     icon: <CheckCircle className="w-5 h-5 mr-2 stroke-green-500" />,
-    progressBg: "bg-green-300",
+    progressBg: "bg-green-500",
   },
   error: {
-    base: "text-gray-500 border-2 border-red-300",
+    base: "text-gray-500 border-2 border-red-500",
     icon: <AlertTriangle className="w-5 h-5 mr-2 stroke-red-500" />,
-    progressBg: "bg-red-300",
+    progressBg: "bg-red-500",
   },
 };
 

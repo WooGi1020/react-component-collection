@@ -9,6 +9,7 @@ import PaginationPage from "./pages/PaginationPage";
 import InputPage from "./pages/InputPage";
 import PopoverPage from "./pages/PopoverPage";
 import SelectPage from "./pages/SelectPage";
+import ToastPage from "./pages/ToastPage";
 
 const router = createBrowserRouter(
   [
@@ -51,6 +52,10 @@ const router = createBrowserRouter(
         {
           path: "forms/select",
           element: <SelectPage />,
+        },
+        {
+          path: "components/toast",
+          element: <ToastPage />,
         },
       ],
     },

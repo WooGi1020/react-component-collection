@@ -8,6 +8,7 @@ const MENUS = [
       { label: "Pagination", to: "/components/pagination" },
       { label: "ImageUploader", to: "/components/image-uploader" },
       { label: "Popover", to: "/components/popover" },
+      { label: "Toast", to: "/components/toast" },
     ],
   },
   {
