@@ -1,5 +1,4 @@
 import Button from "@/components/Button";
-import ToastRoot from "@/components/Toast";
 import useUiStore from "@/store/useUiStore";
 import { Menu, Loader2 } from "lucide-react";
 
@@ -43,8 +42,6 @@ export default function ButtonPage() {
           <Menu className="size-6" />
         </Button>
       </div>
-
-      <ToastRoot />
     </section>
   );
 }

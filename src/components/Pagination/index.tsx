@@ -36,10 +36,7 @@ export default function Pagination({
   const nextGroupFirst = groupPages[currentGroupIndex + 1]?.[0] ?? totalPages;
 
   const pageButtonClass = (p: number) =>
-    clsx(
-      "rounded-full size-8 grid place-items-center",
-      currentPage === p && "bg-blue-600"
-    );
+    clsx("rounded-full size-8", currentPage === p && "bg-blue-600");
 
   return (
     <div

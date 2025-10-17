@@ -2,7 +2,8 @@ import { useState } from "react";
 import Popover from "@/components/Popover";
 import Button from "@/components/Button";
 import clsx from "clsx";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
 
 type SelectOption = {
   label: string;
@@ -41,6 +42,9 @@ export default function Select({
           {...props}
         >
           <span>{selected?.label ?? placeholder}</span>
+          <motion.span className="ml-2" animate={{ rotate: isOpen ? 180 : 0 }}>
+            <ChevronDown className="size-4" />
+          </motion.span>
         </Button>
       )}
     >
