@@ -60,7 +60,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       ref={ref}
       type={type ?? "button"}
       className={classes}
-      aria-label={props["aria-label"] ?? "button"}
+      aria-label={props["aria-label"] ?? undefined}
       disabled={isDisabled}
       aria-busy={isLoading || undefined}
       onClick={(e) => {
