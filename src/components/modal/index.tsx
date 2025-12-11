@@ -11,15 +11,15 @@ export function ModalRoot() {
   const close = useUiStore((s) => s.closeModal);
 
   useEffect(() => {
-    const handleKeydown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+    const handleKeydown = (e: Event) => {
+      if ((e as unknown as KeyboardEvent).key === "Escape") {
         close();
       }
     };
 
-    window.addEventListener("keydown", handleKeydown as any);
+    window.addEventListener("keydown", handleKeydown);
     return () => {
-      window.removeEventListener("keydown", handleKeydown as any);
+      window.removeEventListener("keydown", handleKeydown);
     };
   }, [close]);
 
@@ -58,7 +58,7 @@ function ModalWrapper({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className={clsx(
-        "fixed inset-0 z-[100] flex items-center justify-center px-2",
+        "fixed inset-0 z-100 flex items-center justify-center px-2",
         "bg-black/40 backdrop-blur-sm",
         "pointer-events-none"
       )}

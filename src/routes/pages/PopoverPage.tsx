@@ -36,7 +36,9 @@ export default function PopoverPage() {
             />
             <div className="flex flex-col text-sm truncate">
               <span className="font-medium">우기 정</span>
-              <p className="text-gray-500">dev@example.comddddddddddddddddd</p>
+              <p className="text-gray-500 truncate">
+                dev@example.comddddddddddddddddd
+              </p>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import { create } from "zustand";
 interface ModalData {
   id: string;
   component: React.ComponentType;
-  props?: Record<string, any>;
+  props?: Record<string, unknown>;
 }
 
 interface ToastData {
@@ -29,7 +29,7 @@ type UiStore = {
   modals: ModalData[];
   openModal: (
     component: React.ComponentType,
-    props?: Record<string, any>
+    props?: Record<string, unknown>
   ) => void;
   closeModal: (id?: string) => void;
 
